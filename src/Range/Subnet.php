@@ -55,7 +55,7 @@ class Subnet extends AbstractRange
      *
      * @param AddressInterface $fromAddress
      * @param AddressInterface $toAddress
-     * @param int              $networkPrefix
+     * @param int $networkPrefix
      *
      * @internal
      */
@@ -80,8 +80,7 @@ class Subnet extends AbstractRange
      * Try get the range instance starting from its string representation.
      *
      * @param string|mixed $range
-     * @param bool         $supportNonDecimalIPv4 set to true to support parsing non decimal (that is, octal and
-     *                                            hexadecimal) IPv4 addresses
+     * @param bool $supportNonDecimalIPv4 set to true to support parsing non decimal (that is, octal and hexadecimal) IPv4 addresses
      *
      * @return static|null
      */
@@ -101,7 +100,7 @@ class Subnet extends AbstractRange
         if (!preg_match('/^[0-9]{1,9}$/', $parts[1])) {
             return null;
         }
-        $networkPrefix = (int)$parts[1];
+        $networkPrefix = (int) $parts[1];
         $addressBytes = $address->getBytes();
         $totalBytes = count($addressBytes);
         $numDifferentBits = $totalBytes * 8 - $networkPrefix;

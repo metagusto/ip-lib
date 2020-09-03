@@ -2,7 +2,6 @@
 
 namespace IPLib\Range;
 
-
 use IPLib\Address\AddressInterface;
 use IPLib\Address\IPv4;
 use IPLib\Address\IPv6;
@@ -26,8 +25,7 @@ abstract class AbstractRange implements RangeInterface
                     $this->fromAddress->toIPv4(),
                     $this->toAddress->toIPv4()
                 )->getRangeType();
-            }
-            else {
+            } else {
                 switch ($addressType) {
                     case AddressType::IPv4:
                         $defaultType = IPv4::getDefaultReservedRangeType();
@@ -98,5 +96,4 @@ abstract class AbstractRange implements RangeInterface
 
         return $result;
     }
-
 }
