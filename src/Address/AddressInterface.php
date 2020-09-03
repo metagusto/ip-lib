@@ -39,28 +39,28 @@ interface AddressInterface
     /**
      * Get the type of the IP address.
      *
-     * @return int One of the \IPLib\Address\Type::T_... constants
+     * @return int One of the \IPLib\Address\Type constants
      */
     public function getAddressType();
 
     /**
      * Get the default RFC reserved range type.
      *
-     * @return int One of the \IPLib\Range\Type::T_... constants
+     * @return int One of the \IPLib\Range\Type constants
      */
     public static function getDefaultReservedRangeType();
 
     /**
      * Get the RFC reserved ranges (except the ones of type getDefaultReservedRangeType).
      *
-     * @return \IPLib\Address\AssignedRange[] ranges are sorted
+     * @return AssignedRange[] ranges are sorted
      */
     public static function getReservedRanges();
 
     /**
      * Get the type of range of the IP address.
      *
-     * @return int One of the \IPLib\Range\Type::T_... constants
+     * @return int One of the \IPLib\Range\Type constants
      */
     public function getRangeType();
 
@@ -74,7 +74,7 @@ interface AddressInterface
     /**
      * Check if this address is contained in an range.
      *
-     * @param \IPLib\Range\RangeInterface $range
+     * @param RangeInterface $range
      *
      * @return bool
      */
@@ -83,14 +83,14 @@ interface AddressInterface
     /**
      * Get the address right after this IP address (if available).
      *
-     * @return \IPLib\Address\AddressInterface|null
+     * @return AddressInterface|null
      */
     public function getNextAddress();
 
     /**
      * Get the address right before this IP address (if available).
      *
-     * @return \IPLib\Address\AddressInterface|null
+     * @return AddressInterface|null
      */
     public function getPreviousAddress();
 
@@ -103,4 +103,18 @@ interface AddressInterface
      * @example for IPv6 it returns something like x.x.x.x..x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.ip6.arpa
      */
     public function getReverseDNSLookupName();
+
+    /**
+     * Create an IPv6 representation of this address (in 6to4 notation).
+     *
+     * @return IPv6
+     */
+    public function toIPv6();
+
+    /**
+     * Create an IPv4 representation of this address (if possible, otherwise returns null).
+     *
+     * @return IPv4|null
+     */
+    public function toIPv4();
 }

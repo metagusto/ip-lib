@@ -3,6 +3,7 @@
 namespace IPLib\Range;
 
 use IPLib\Address\AddressInterface;
+use IPLib\Address\IPv4;
 
 /**
  * Interface of all the range types.
@@ -30,21 +31,21 @@ interface RangeInterface
     /**
      * Get the type of the IP addresses contained in this range.
      *
-     * @return int One of the \IPLib\Address\Type::T_... constants
+     * @return int One of the \IPLib\Address\Type constants
      */
     public function getAddressType();
 
     /**
      * Get the type of range of the IP address.
      *
-     * @return int One of the \IPLib\Range\Type::T_... constants
+     * @return int One of the \IPLib\Range\Type constants
      */
     public function getRangeType();
 
     /**
      * Check if this range contains an IP address.
      *
-     * @param \IPLib\Address\AddressInterface $address
+     * @param AddressInterface $address
      *
      * @return bool
      */
@@ -53,7 +54,7 @@ interface RangeInterface
     /**
      * Check if this range contains another range.
      *
-     * @param \IPLib\Range\RangeInterface $range
+     * @param RangeInterface $range
      *
      * @return bool
      */
@@ -62,26 +63,28 @@ interface RangeInterface
     /**
      * Get the initial address contained in this range.
      *
-     * @return \IPLib\Address\AddressInterface
+     * @return AddressInterface
      */
     public function getStartAddress();
 
     /**
      * Get the final address contained in this range.
      *
-     * @return \IPLib\Address\AddressInterface
+     * @return AddressInterface
      */
     public function getEndAddress();
 
     /**
-     * Get a string representation of the starting address of this range than can be used when comparing addresses and ranges.
+     * Get a string representation of the starting address of this range than can be used when comparing addresses and
+     * ranges.
      *
      * @return string
      */
     public function getComparableStartString();
 
     /**
-     * Get a string representation of the final address of this range than can be used when comparing addresses and ranges.
+     * Get a string representation of the final address of this range than can be used when comparing addresses and
+     * ranges.
      *
      * @return string
      */
@@ -90,7 +93,7 @@ interface RangeInterface
     /**
      * Get the subnet mask representing this range (only for IPv4 ranges).
      *
-     * @return \IPLib\Address\IPv4|null return NULL if the range is an IPv6 range, the subnet mask otherwise
+     * @return IPv4|null return NULL if the range is an IPv6 range, the subnet mask otherwise
      */
     public function getSubnetMask();
 }
